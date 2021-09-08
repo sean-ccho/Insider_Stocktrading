@@ -34,3 +34,15 @@ class technicalIndicator:
 
         return RSI_value
         # print(data_MACD["2021-09-07"])
+
+    # def EMA():
+    #     # RSI Value Calculation
+    #     data_EMA, meta_data_EMA = tech.get_ema(
+    #         symbol="NBM.V", interval='daily', time_period="100", series_type='close')
+
+    #     EMA_dict_value = data_EMA["2021-09-07"]
+    #     EMA_value = EMA_dict_value["EMA"]
+
+    #     # RSI_value = float(RSI_dict_value[0])
+
+    #     return EMA_dict_value

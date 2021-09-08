@@ -3,14 +3,40 @@ import tradingview_ta
 from TradingView import watchList
 from AlphaVantage import technicalIndicator
 from excel import excelRead
+from Insider import insidetrack
+from InsiderSold import insidetracksold
+from smtpGmail import gmail
 
 
 if "__main__" == __name__:
+    symbol = excelRead.readData()
 
-    symbol = excelRead.readData()[0]
+    ######################################### Insider Tracking #########################################
+    t = insidetrack.tracker()
+    ts = insidetracksold.trackerSold()
+    # print(t)
+    # print(ts)
 
-    MACD = technicalIndicator.MACD(symbol)
-    print(MACD)
+    ######################################### TradingView #########################################
+    # watchList.analysis()
 
-    RSI = technicalIndicator.RSI(symbol)
-    print(RSI)
+    ######################################### AlphaVantage #########################################
+    for i in range(len(symbol)):
+        MACD = technicalIndicator.MACD(symbol[i])
+        # print(MACD)
+        RSI = technicalIndicator.RSI(symbol[i])
+        if float(RSI) > 40:
+            print('It is not ready to purchase ' +
+                  str(symbol[i]) + ' because ' + RSI + ' is still too high and above 70 is OVERBOUGHT')
+
+        elif float(RSI) < 40:
+            print('It is ready to purchase ' +
+                  str(symbol[i]) + ' because ' + RSI + ' is cooled down and below 30 is OVERSOLD')
+
+    # EMA = technicalIndicator.EMA()
+    # print(EMA)
+
+    ######################################### Gmail #########################################
+
+    gmail.sendMail('chunghwan14@gmail.com',
+                   'chunghwan14@gmail.com', '\n' + t + '\n\n\n\n' + ts)
