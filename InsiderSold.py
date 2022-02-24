@@ -82,19 +82,19 @@ class insidetracksold:
 
         # print(chunkDataTable)
 
-        ############## Text File ##############
-        extension = ".txt"
-        save_path = "C:/Users/chung/Desktop/InsiderTrading"
-        filename = dateToday + " Insider Sold" + extension
-        completefileName = os.path.join(save_path, filename)
-        f = open(completefileName, 'w', encoding='utf8')
-        f.write("Last updated " + current_time)
-        f.write("\n\n\n")
-        f.write(chunkDataTable)
-        f.close()
-        ############## Text File ##############
+        # ############## Text File ##############
+        # extension = ".txt"
+        # save_path = "C:/Users/chung/Desktop/InsiderTrading"
+        # filename = dateToday + " Insider Sold" + extension
+        # completefileName = os.path.join(save_path, filename)
+        # f = open(completefileName, 'w', encoding='utf8')
+        # f.write("Last updated " + current_time)
+        # f.write("\n\n\n")
+        # f.write(chunkDataTable)
+        # f.close()
+        # ############## Text File ##############
 
-        # print(tabulate(chunkData, headers=[
+        # print(tabulate(chunkData, headers=[w
         # 'Symbol', 'Amount', 'Share Price']))
 
         driver.quit()

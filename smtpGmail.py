@@ -7,7 +7,9 @@ class gmail:
     def sendMail(me, title, msg):
 
         smtp = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-        smtp.login(me, 'Dh2fpswl!')
+        # https://myaccount.google.com/security
+        # Create APP password
+        smtp.login(me, 'ebrejhrfywhkmyjc')
         msg = MIMEText(msg, 'html')
         msg['Subject'] = title
         msg["To"] = 'chunghwan14@gmail.com'
