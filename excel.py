@@ -3,7 +3,7 @@ from openpyxl import load_workbook
 
 class excelRead:
     def readData():
-        load_wb = load_workbook('Book1.xlsx')
+        load_wb = load_workbook('/Users/seancho/Desktop/SandBox/Alphavantage/Book1.xlsx')
 
         load_ws = load_wb['Sheet1']
         # print(load_ws['A1'].value)
