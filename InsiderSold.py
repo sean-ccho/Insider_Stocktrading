@@ -3,6 +3,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from datetime import datetime
 from tabulate import tabulate
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
 import time
 import sys
 import os
@@ -16,7 +18,7 @@ class insidetracksold:
         options = Options()
         options.headless = True
         current_time = now.strftime("%H:%M:%S")
-        driver = webdriver.Chrome(chrome_options=options, executable_path= "/Users/seancho/Desktop/SandBox/Alphavantage/chromedriver")
+        driver = webdriver.Chrome(ChromeDriverManager().install())
         url = 'https://ceo.ca/api/sedi/?symbol=&amount=&transaction=&insider='
         googlesheeturl = 'https://docs.google.com/spreadsheets/d/12DBEu_hWAquzwGcX_K3sUWU45TLrEQw278S_r_tRxng/edit#gid=0'
         driver.get(url)
@@ -99,3 +101,4 @@ class insidetracksold:
 
         driver.quit()
         return(chunkDataTable)
+
