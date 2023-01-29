@@ -55,13 +55,6 @@ class insidetracksold:
         rows = driver.find_elements_by_xpath("//table/tbody/tr")
         dateToday = today.strftime("%Y-%m-%d")
 
-        # print("\n[boughtGroups] Total of " + str(len(boughtGroups)) +
-        #       " companies bought their shares \n")
-        # print("[soldGroups] Total of " + str(len(soldGroups)) +
-        #       " companies sold their shares \n")
-        # print("[rows] Total of " + str(len(rows)) +
-        #       " companies bought/sold their shares \n\n")
-
         def chunk_list(lst, chunk_size):
             for i in range(0, len(lst), chunk_size):
                 yield lst[i:i + chunk_size]
@@ -74,30 +67,9 @@ class insidetracksold:
             data.append(sharesGroups[x].text)
 
         chunkData = list(chunk_list(data, 3))
-        # print("\n\nToday's date is " + dateToday + '\n')
-
-        # chunkDataTable = tabulate(chunkData, headers=[
-        #     'Symbol', 'Amount', 'Share Price'])
 
         chunkDataTable = tabulate(chunkData, headers=[
             'Symbol',  'Amount', 'Share Price'], tablefmt="html")
-
-        # print(chunkDataTable)
-
-        # ############## Text File ##############
-        # extension = ".txt"
-        # save_path = "C:/Users/chung/Desktop/InsiderTrading"
-        # filename = dateToday + " Insider Sold" + extension
-        # completefileName = os.path.join(save_path, filename)
-        # f = open(completefileName, 'w', encoding='utf8')
-        # f.write("Last updated " + current_time)
-        # f.write("\n\n\n")
-        # f.write(chunkDataTable)
-        # f.close()
-        # ############## Text File ##############
-
-        # print(tabulate(chunkData, headers=[w
-        # 'Symbol', 'Amount', 'Share Price']))
 
         driver.quit()
         return(chunkDataTable)
