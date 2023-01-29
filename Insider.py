@@ -18,7 +18,6 @@ class insidetrack:
         options = Options()
         options.headless = True
         current_time = now.strftime("%H:%M:%S")
-        # driver = webdriver.Chrome(chrome_options=options, executable_path= "/Users/seancho/Desktop/SandBox/Alphavantage/chromedriver")
         driver = webdriver.Chrome(ChromeDriverManager().install())
 
 
