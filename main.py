@@ -14,8 +14,8 @@ if "__main__" == __name__:
     symbol = excelRead.readData()
 
     # Insider Tracking
-    # t = insidetrack.tracker()  # Tracks INSIDER BOUGHT alerts from CEO.CA
-    # ts = insidetracksold.trackerSold()  # Tracks INSIDER SOLD alerts from CEO.CA
+    t = insidetrack.tracker()  # Tracks INSIDER BOUGHT alerts from CEO.CA
+    ts = insidetracksold.trackerSold()  # Tracks INSIDER SOLD alerts from CEO.CA
     tss = personalInsiderTracker.tracker()  # Tracks MY Insider transaction
 
     # gmail.sendMail('chunghwan14@gmail.com', 'InsiderTracking',
