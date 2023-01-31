@@ -18,7 +18,7 @@ class personalInsiderTracker:
         options = Options()
         options.headless = True
         current_time = now.strftime("%H:%M:%S")
-        driver = webdriver.Chrome(ChromeDriverManager().install())
+        driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
         url = 'https://ceo.ca/api/sedi/?symbol=&amount=&transaction=&insider='
         googlesheeturl = 'https://docs.google.com/spreadsheets/d/12DBEu_hWAquzwGcX_K3sUWU45TLrEQw278S_r_tRxng/edit#gid=0'
         driver.get(url)
